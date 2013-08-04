@@ -1,12 +1,12 @@
 <div>
 
     <div data-dojo-attach-point="header"
-        data-dojo-type="dijit.layout.ContentPane"
+        data-dojo-type="dijit/layout/ContentPane"
         data-dojo-props="region:'top', 
         				 class:'header'">
             <h1><b>${name}</b></h1>
 
-		<div data-dojo-type="dijit.MenuBar" 
+		<div data-dojo-type="dijit/MenuBar" 
 			data-dojo-attach-point="mainMenu",
 			data-dojo-props="class:'menubar'" >
 		</div>
@@ -14,11 +14,11 @@
     </div>
     
 	<div div data-dojo-attach-point="application"
-		data-dojo-type="dijit.layout.BorderContainer"
+		data-dojo-type="dijit/layout/BorderContainer"
 		data-dojo-props="region:'center',
 						 liveSplitters:true">
 		
-    	<div data-dojo-type='dijit.layout.AccordionContainer'
+    	<div data-dojo-type='dijit/layout/AccordionContainer'
     		 data-dojo-props="region:'leading',
     					 	  splitter:true,
     					 	  style:'width: 300px;'"
@@ -26,11 +26,11 @@
     		 data-dojo-attach-point='accordContainer'>
     	</div>
     	
-   		<div data-dojo-type='dijit.layout.ContentPane'
+   		<div data-dojo-type='dijit/layout/ContentPane'
    			data-dojo-props="region:'trailing',
    							 splitter:true">
 
-	    	<div data-dojo-type='dojox.grid.DataGrid'
+	    	<div data-dojo-type='dojox/grid/DataGrid'
 	    		data-dojo-props="nbZones:1,
 	    						 style:'width: 350px;',
 	    						 rowHeight:'50'"
@@ -38,20 +38,20 @@
 	    	</div>
     	</div>
 		<div 	data-dojo-attach-point='main'
-				data-dojo-type='dijit.layout.ContentPane'
+				data-dojo-type='dijit/layout/ContentPane'
 				data-dojo-props="splitter:true,region:'center',style:'height:300px,width:100%'">
 	
 	    		<button data-dojo-attach-point='setButton'
-					data-dojo-type="dijit.form.Button"
+					data-dojo-type="dijit/form/Button"
 					data-dojo-props="region:'center'">press me</button>
 			
 			    <input data-dojo-attach-point='docName'
-			    	   data-dojo-type="dijit.form.TextBox"
+			    	   data-dojo-type="dijit/form/TextBox"
 			    	   data-dojo-props="region:'center'">
 		</div>
 	</div>		
 		<div data-dojo-attach-point='footer'
-			data-dojo-type='dijit.form.TextBox'
+			data-dojo-type='dijit/form/TextBox'
 			data-dojo-props="region:'bottom'">
 		</div>
 </div>
