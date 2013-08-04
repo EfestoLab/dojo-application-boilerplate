@@ -12,6 +12,7 @@ define('dojotestapp/Application',[
     // exposed in applications 
     'dojo/_base/declare',
     'dojo/parser',
+    'dojo/on',
 
     // This is the main template of the application
     'dojo/text!dojotestapp/templates/main.html',
@@ -36,6 +37,7 @@ define('dojotestapp/Application',[
     'dijit/form/Textarea',
     'dijit/form/TextBox',
 	'dijit/Tooltip',
+	'dijit/Dialog',
 
     // stores
     'dojo/store/Memory', 
@@ -43,7 +45,7 @@ define('dojotestapp/Application',[
     // dgrid
     'dojotestapp/widget/my_dGrid'
 
- ], function(declare,parser,template){
+ ], function(declare,parser,on,template){
 
      declare("dojotestapp.Application", 
      		// inherited from :
@@ -86,6 +88,7 @@ define('dojotestapp/Application',[
 
           	doSomething: function(){
           		console.log('Doing something...');
+          		console.log(this.docName)
           		this.docName.set('value', 'Button pressed')
           	},
 
@@ -94,17 +97,8 @@ define('dojotestapp/Application',[
 	            this.inherited(arguments);
 
 	            // connect the button to a function as event
-	            dojo.connect(this.setButton,'onClick', this, this.doSomething)
-
-				// define the fields of the grid
-				var structure = [
-					{ field: "key", label: "key"},
-			        { field: "value", label: "value"},
-			    ];
-			    
-			    // attach store and structure to the grid
-			    this.gridNotify.set('columns',structure);
-	            this.gridNotify.set('store', this.memoryStore);
+	            // NOTE, using dojo hitch for the closure, to be able to access the widget
+	            on(this.setButton,'click', dojo.hitch(this,this.doSomething))
 	         },
 	 			
 	 		// custom function to build the menu
