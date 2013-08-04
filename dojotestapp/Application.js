@@ -37,24 +37,11 @@ define('dojotestapp/Application',[
     'dijit/form/TextBox',
 	'dijit/Tooltip',
 
-    // expermiental features
-    'dojox/data/FileStore',
-    'dojox/socket',
-    'dojox/socket/Reconnect',
-    'dojox/grid/DataGrid',
-    'dojox/layout/GridContainer',
-    'dojox/widget/Portlet',
-
     // stores
-    'dojo/store/Observable',
-    'dojo/data/ItemFileWriteStore',
-    "dojo/store/Memory", 
-    'dojo/store/Cache',
-    'dojo/data/ObjectStore',
-    'dojo/store/JsonRest',
+    'dojo/store/Memory', 
 
     // dgrid
-    'dgrid/Grid'
+    'dojotestapp/widget/my_dGrid'
 
  ], function(declare,parser,template){
 
@@ -90,61 +77,70 @@ define('dojotestapp/Application',[
 	 			this.memoryStore = new dojo.store.Memory({
 	 				data:[
 	 					{'key':'F', 'value':'Foo'},
-	 					{'key':'B', 'value':'Bar'}
+	 					{'key':'B', 'value':'Bar'},
+	 					{'key':'Fa', 'value':'Foo'},
+	 					{'key':'Bb', 'value':'Bar'}
 	 					]
 	 				});
-	 			// the grid is an old implementation and should be replaced with dgid
-	 			// #TODO replace dataGrid with dGrid
-				this.adapterStore = new dojo.data.ObjectStore({objectStore:this.memoryStore});
-				
           	},
 
           	doSomething: function(){
-
           		console.log('Doing something...');
+          		this.docName.set('value', 'Button pressed')
           	},
 
 	        // post create function call
 			postCreate: function() {
 	            this.inherited(arguments);
-	            console.log('postcreate')
 
 	            // connect the button to a function as event
 	            dojo.connect(this.setButton,'onClick', this, this.doSomething)
 
 				// define the fields of the grid
 				var structure = [
-					{ name: "key", field: "key", width: "45px"},
-			        { name: "value", field: "value", width: "300px"},
+					{ field: "key", label: "key"},
+			        { field: "value", label: "value"},
 			    ];
 			    
 			    // attach store and structure to the grid
-			    this.gridNotify.set('structure',structure)
-	            this.gridNotify.set('store',this.adapterStore)
+			    this.gridNotify.set('columns',structure);
+	            this.gridNotify.set('store', this.memoryStore);
 	         },
 	 			
 	 		// custom function to build the menu
 	 		buildMenu: function(){	
 	 		  
-		      var pSubMenu = new dijit.DropDownMenu({});
+		      var pSubMenu = new dijit.DropDownMenu();
 		      pSubMenu.addChild(new dijit.MenuItem({
 		          label:"Test"
 		      }));
-			 			
+
+			  // Add the dropdown to the menubar
 		      this.mainMenu.addChild(new dijit.PopupMenuBarItem({
 		          label:"File",
 		          popup:pSubMenu
 		      }));
-	 			
 	 		},
 
-			// build the page
+	 		buildSidePanel: function(){
+	 			var newPanel_foo = dijit.layout.ContentPane({title:'Fooo'})
+	 			var newPanel_bar = dijit.layout.ContentPane({title:'Bar'})
+	 			
+	 			newPanel_foo.set('content', '<b>This is some content</b>')
+	 			newPanel_bar.set('content', '<b>Some other stuffs here</b>')
+
+	 			this.accordContainer.addChild(newPanel_foo)
+	 			this.accordContainer.addChild(newPanel_bar)
+	 		},
+
+			// build the page this is an ovewrite to buildRendering function
 	        buildRendering: function() {
 	            this.inherited(arguments);
 	            //force the thml, through the css to fit the page
 	            // #TODO investigate further
 	            this.style={'height':'100%'}
 	            this.buildMenu()
+	            this.buildSidePanel()
 	            },
      });
 
