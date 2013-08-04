@@ -7,12 +7,12 @@ define(['dojo/_base/declare',
         'dgrid/Keyboard',
         // This is required to make the dGrid parentable with dijit widget out of the box.
         'dgrid/extensions/DijitRegistry',
-        
+
         // test store
         'dgrid/test/data/base',
-       	'dijit/form/TimeTextBox'],
+       	'dijit/form/DateTextBox'],
 
-    function(declare, OnDemandGrid, tree, editor, selector, Selection, Keyboard, DijitRegistry, testStore){
+    function(declare, OnDemandGrid, tree, editor, selector, Selection, Keyboard,DijitRegistry, testStore){
     return declare('my_dGrid',[OnDemandGrid, Selection, Keyboard, DijitRegistry],{    
         store: testCountryStore,
 		query: {type: "continent"},
@@ -21,6 +21,6 @@ define(['dojo/_base/declare',
 			editor({label: "Visited", field: "bool", sortable: false}, "checkbox"),
 			{label:"Type", field:"type", sortable: false},
 			{label:"Population", field:"population"},
-			editor({label:"Timezone", field:"timezone"}, dijit.form.TimeTextBox)],
+			editor({label:"Timezone", field:"timezone"}, dijit.form.DateTextBox)],
     });
 });

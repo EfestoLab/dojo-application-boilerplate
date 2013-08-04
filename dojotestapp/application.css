@@ -21,4 +21,23 @@ html, body {
     width: 2em;
 }
 
+.dgrid {
+	width: 700px;
+}
+
+.field-bool {
+	width: 4em;
+}
+
+.field-type {
+	width: 5em;
+}
+
+.selector {
+	width: 2em;
+}
+
+.ui-widget{
+	margin: 10px;
+}
 
