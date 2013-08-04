@@ -1,5 +1,4 @@
 <div>
-
     <div data-dojo-attach-point="header"
         data-dojo-type="dijit/layout/ContentPane"
         data-dojo-props="region:'top', 
@@ -26,17 +25,14 @@
     		 data-dojo-attach-point='accordContainer'>
     	</div>
     	
-   		<div data-dojo-type="dijit/layout/ContentPane"
+		<!--NOTE, HERE I'M USING MY CUSTOM WIDGET DIRECTLY-->
+    	<div data-dojo-type="dojotestapp/widget/my_dGrid"
+    		data-dojo-attach-point="gridNotify"
    			data-dojo-props="region:'center',
-   							 splitter:true">
-
-   			<!--NOTE, HERE I'M USING MY CUSTOM WIDGET DIRECTLY-->
-	    	<div data-dojo-type="dojotestapp/widget/my_dGrid"
-	    		data-dojo-attach-point="gridNotify">
-	    	</div>
-
+				 			 splitter:false">
     	</div>
-		<div 	data-dojo-attach-point='main'
+
+    	<div 	data-dojo-attach-point='main'
 				data-dojo-type='dijit/layout/ContentPane'
 				data-dojo-props="splitter:true,
 								 region:'trailing',

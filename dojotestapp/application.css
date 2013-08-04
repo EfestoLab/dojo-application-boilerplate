@@ -13,31 +13,16 @@ html, body {
     background-color:#FFFFFF;
     }
 
-.field-type {
-    width: 5em;
+.application .dgrid-no-data, .dgrid-loading {
+    color: #aaa;
+    font-size: 3em;
+    padding: 3em;
+    text-align: center;
 }
 
-.selector {
-    width: 2em;
+.application .header {
+    height: auto;
+    color: #759DC0;
+    background-color: white;
+    font-family: arial, verdana, sans-serif;
 }
-
-.dgrid {
-	width: 700px;
-}
-
-.field-bool {
-	width: 4em;
-}
-
-.field-type {
-	width: 5em;
-}
-
-.selector {
-	width: 2em;
-}
-
-.ui-widget{
-	margin: 10px;
-}
-

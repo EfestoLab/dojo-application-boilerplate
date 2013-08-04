@@ -7,9 +7,10 @@ require({
         { name: 'dijit', location: 'javascript/dojo/release-1.9.1/dijit'},
         { name: 'dojox', location: 'javascript/dojo/release-1.9.1/dojox'},
         // Dgrid modules
-        { name: 'dgrid', location: 'javascript/dgrid'},
         { name: 'xstyle', location: 'javascript/xstyle'},
         { name: 'put-selector', location: 'javascript/put-selector'},
+        { name: 'dgrid', location: 'javascript/dgrid'},
+
         // the application
         { name: 'dojotestapp', location: 'dojotestapp'}
     ],

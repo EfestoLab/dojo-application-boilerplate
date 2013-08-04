@@ -103,17 +103,17 @@ define('dojotestapp/Application',[
 	 			
 	 		// custom function to build the menu
 	 		buildMenu: function(){	
-	 		  
-		      var pSubMenu = new dijit.DropDownMenu();
-		      pSubMenu.addChild(new dijit.MenuItem({
-		          label:"Test"
-		      }));
+				  
+				var pSubMenu = new dijit.DropDownMenu();
+				pSubMenu.addChild(new dijit.MenuItem({
+				  label:"Test"
+				}));
 
-			  // Add the dropdown to the menubar
-		      this.mainMenu.addChild(new dijit.PopupMenuBarItem({
-		          label:"File",
-		          popup:pSubMenu
-		      }));
+				// Add the dropdown to the menubar
+				this.mainMenu.addChild(new dijit.PopupMenuBarItem({
+				  label:"File",
+				  popup:pSubMenu
+				}));
 	 		},
 
 	 		buildSidePanel: function(){
