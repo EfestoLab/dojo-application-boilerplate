@@ -1,7 +1,7 @@
-define(['dbind/bind', 'xstyle/util/create-style-sheet', 'xstyle/elemental'], function(bind, createStyleSheet, elemental){
+define(['dbind/bind', 'xstyle/util/createStyleSheet', 'xstyle/core/elemental'], function(bind, createStyleSheet, elemental){
 	var model = {
-		data: '{\n  "first": "Web",\n  "last": "Developer",\n  "favorites": [\n    "Data Bindings"\n  ]\n}', 
-		ui: "#target {\n  => h2 {\n    from: data.first+' '+data.last;\n  },\n  ul {\n    from: data.favorites\n  };\n  background-color: red;\n  width: 100px;\n  height: 100px;\n}", 
+		data: '{\n  "first": "Web",\n  "last": "Developer",\n  "favorites": [\n    "Data Bindings", "CSS Extensions"\n  ]\n}', 
+		ui: "#target {\n => h2 (data/first+' '+data/last),\n    ul (data/favorites) {\n      color: #060;\n    };\n  background-color: #ccc;\n  width: 200px;\n  padding: 10px;\n}", 
 		parsed: {}};
 	var converter = bind(model);
 	converter.get('data', update);
@@ -36,7 +36,7 @@ define(['dbind/bind', 'xstyle/util/create-style-sheet', 'xstyle/elemental'], fun
 			}
 		},100);
 	}
-	converter.onProperty = function(name, value, rule){
+	converter.put = function(value, rule, name){
 		do{
 			parse = rule.parse;
 			rule = rule.parent;

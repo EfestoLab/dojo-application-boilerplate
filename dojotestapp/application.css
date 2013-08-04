@@ -13,13 +13,12 @@ html, body {
     background-color:#FFFFFF;
     }
 
-/*
-Style dgrid
-*/	
-.dgrid-row-odd {
-    background: #F2F5F9;
+.field-type {
+    width: 5em;
 }
-	
-.dgrid-cell {
-    border: none;
+
+.selector {
+    width: 2em;
 }
+
+
