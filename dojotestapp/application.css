@@ -12,3 +12,14 @@ html, body {
     background-image:'';
     background-color:#FFFFFF;
     }
+
+/*
+Style dgrid
+*/	
+.dgrid-row-odd {
+    background: #F2F5F9;
+}
+	
+.dgrid-cell {
+    border: none;
+}
