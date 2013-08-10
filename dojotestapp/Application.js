@@ -135,7 +135,7 @@ define('dojotestapp/Application',[
 	            this.style={'height':'100%'}
 	            this.buildMenu()
 	            this.buildSidePanel()
-	            },
+	            }
      });
 
  });

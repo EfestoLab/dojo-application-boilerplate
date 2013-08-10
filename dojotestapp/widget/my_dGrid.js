@@ -25,24 +25,25 @@ define(['dojo/_base/declare',
  		selectionMode: "single", // for Selection; only select a single row at a time
         cellNavigation: true,// for Keyboard; allow only row-level keyboard navigation
 		columns: {
-					countries: tree({label: "Name", field:"name", sortable: false}),
-					visited: editor({label: "Visited", field: "bool", sortable: false}, "checkbox"),
-					type: {label:"Type", field:"type", sortable: false},
-					population: {label:"Population", field:"population"},
-					timezone: {label:"Timezone", field:"timezone"}
-				},
+			continent: tree({label: "Name", field:"name", sortable: false}),
+			visited: editor({label: "Visited", field: "bool", sortable: false}, "checkbox"),
+			type: {label:"Type", field:"type", sortable: false},
+			population: {label:"Population", field:"population"},
+			timezone: {label:"Timezone", field:"timezone"}
+		},
 
         constructor: function(args) {
             dojo.safeMixin(this, args);
+            console.log(this.store)
             // PRINT THE QUERY RESULTS FOR DEBUG PURPOSES
+         
             var conts = this.store.query({type:'continent'}).then(function(results){
-            	for (result in results){
-            		console.log('restult:', results[result])
+            	for (result_id in results){
+            		console.log('restult:', results[result_id])
 
             	}
             	console.log('results:', results.length)	
-            })
-        	
+            })	
         },
 
     })

@@ -153,7 +153,6 @@ function(lang, Deferred, Memory, Observable, QueryResults){
 	// global var testTypesStore
 	testTypesStore = Observable(new Memory({data: typesData}));
 
-
 	var testCountryData = [
 		{ id: 'AF', name:'Africa', type:'continent', population:'900 million', area: '30,221,532 sq km',
 				timezone: '-1 UTC to +4 UTC'},
